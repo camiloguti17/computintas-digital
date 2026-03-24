@@ -1,20 +1,33 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+})
+const _geistMono = Geist_Mono({ 
+  subsets: ["latin"],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Computintas Digital | Soluciones de Software a la Medida',
-  description: 'Innovación Tecnológica y Digital. Desarrollo de software personalizado, sistemas a medida, aplicaciones móviles y soluciones empresariales.',
-  keywords: ['software', 'desarrollo', 'Colombia', 'soluciones digitales', 'aplicaciones'],
+  title: 'Computintas Digital | Software Empresarial a la Medida',
+  description: 'Transformamos empresas con soluciones de software personalizadas. Más de 10 años desarrollando sistemas de gestión, aplicaciones móviles y herramientas digitales para optimizar tu negocio.',
+  keywords: ['software empresarial', 'desarrollo a medida', 'sistemas de gestión', 'aplicaciones móviles', 'Colombia', 'transformación digital', 'Computintas'],
   generator: 'v0.app',
   openGraph: {
-    title: 'Computintas Digital',
-    description: 'Soluciones de software a la medida - Innovación Tecnológica y Digital',
+    title: 'Computintas Digital | Software Empresarial a la Medida',
+    description: 'Transformamos empresas con soluciones de software personalizadas. Más de 10 años de experiencia.',
     type: 'website',
+    locale: 'es_CO',
+    siteName: 'Computintas Digital',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Computintas Digital | Software Empresarial',
+    description: 'Soluciones de software personalizadas para tu empresa',
   },
   icons: {
     icon: [
@@ -35,13 +48,22 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#1a1a2e' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className="font-sans antialiased">
         {children}
         <Analytics />

@@ -4,14 +4,41 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import { Mail, Phone, MapPin, MessageCircle, ArrowRight, Send, Clock } from 'lucide-react'
+
+const contactInfo = [
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'Contacto@computintas.co',
+    href: 'mailto:Contacto@computintas.co',
+  },
+  {
+    icon: Phone,
+    label: 'Teléfono',
+    value: '604 8298470',
+    href: 'tel:6048298470',
+  },
+  {
+    icon: MapPin,
+    label: 'Ubicación',
+    value: 'Apartadó, Colombia',
+    href: null,
+  },
+  {
+    icon: Clock,
+    label: 'Horario',
+    value: 'Lun - Vie, 8am - 6pm',
+    href: null,
+  },
+]
 
 export function ContactForm() {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    subject: '',
+    company: '',
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -32,70 +59,91 @@ export function ContactForm() {
     await new Promise(resolve => setTimeout(resolve, 1000))
     
     console.log('Form submitted:', formState)
-    setFormState({ name: '', email: '', subject: '', message: '' })
+    setFormState({ name: '', email: '', company: '', message: '' })
     setIsSubmitting(false)
   }
 
   return (
-    <section id="contacto" className="w-full py-20 md:py-28 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            ¿En qué te asesoramos?
+    <section id="contacto" className="section-padding bg-muted/30">
+      <div className="container-premium">
+        {/* Section header */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="inline-block text-sm font-medium text-primary uppercase tracking-wider mb-4">
+            Contacto
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
+            Conversemos sobre tu proyecto
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            ¿Tienes un proyecto en mente? Nos encantaría hablar contigo sobre cómo podemos ayudarte.
+          <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+            ¿Tienes una idea o un problema que resolver? Cuéntanos y te ayudaremos 
+            a encontrar la mejor solución tecnológica para tu negocio.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Contact Info */}
-          <div className="lg:col-span-1">
-            <div className="space-y-8">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary mt-1" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                  <p className="text-muted-foreground">Contacto@computintas.co</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary mt-1" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Teléfono</h3>
-                  <p className="text-muted-foreground">604 8298470</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-primary mt-1" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Ubicación</h3>
-                  <p className="text-muted-foreground">Apartadó, Colombia</p>
-                </div>
-              </div>
+          <div className="lg:col-span-2 space-y-8">
+            {/* Quick contact cards */}
+            <div className="space-y-4">
+              {contactInfo.map((item) => {
+                const Icon = item.icon
+                const content = (
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-background border border-border/50 hover:border-primary/20 transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-0.5">{item.label}</p>
+                      <p className="font-medium text-foreground">{item.value}</p>
+                    </div>
+                  </div>
+                )
+                
+                return item.href ? (
+                  <a key={item.label} href={item.href} className="block">
+                    {content}
+                  </a>
+                ) : (
+                  <div key={item.label}>{content}</div>
+                )
+              })}
             </div>
+
+            {/* WhatsApp CTA */}
+            <Card className="bg-primary/5 border-primary/20">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center">
+                    <MessageCircle className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Respuesta inmediata</h3>
+                    <p className="text-sm text-muted-foreground">Escríbenos por WhatsApp</p>
+                  </div>
+                </div>
+                <a 
+                  href="https://wa.me/573107876505?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20soluciones%20de%20software."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2">
+                    Iniciar conversación
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </a>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Form */}
-          <div className="lg:col-span-2">
-            <Card className="border-border">
-              <CardHeader>
-                <CardTitle>Envíanos tu mensaje</CardTitle>
-              </CardHeader>
-              <CardContent>
+          <div className="lg:col-span-3">
+            <Card className="border-border/50 shadow-sm">
+              <CardContent className="p-6 md:p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                        Nombre
+                        Nombre completo
                       </label>
                       <Input
                         id="name"
@@ -104,12 +152,12 @@ export function ContactForm() {
                         onChange={handleChange}
                         placeholder="Tu nombre"
                         required
-                        className="bg-background border-border"
+                        className="bg-background border-border h-11"
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Email
+                        Email corporativo
                       </label>
                       <Input
                         id="email"
@@ -117,38 +165,37 @@ export function ContactForm() {
                         type="email"
                         value={formState.email}
                         onChange={handleChange}
-                        placeholder="tu@email.com"
+                        placeholder="tu@empresa.com"
                         required
-                        className="bg-background border-border"
+                        className="bg-background border-border h-11"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                      Asunto
+                    <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
+                      Empresa
                     </label>
                     <Input
-                      id="subject"
-                      name="subject"
-                      value={formState.subject}
+                      id="company"
+                      name="company"
+                      value={formState.company}
                       onChange={handleChange}
-                      placeholder="¿Cuál es tu proyecto?"
-                      required
-                      className="bg-background border-border"
+                      placeholder="Nombre de tu empresa"
+                      className="bg-background border-border h-11"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Mensaje
+                      Cuéntanos sobre tu proyecto
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formState.message}
                       onChange={handleChange}
-                      placeholder="Cuéntanos más sobre tu proyecto..."
+                      placeholder="¿Qué problema quieres resolver? ¿Qué funcionalidades necesitas?"
                       required
                       rows={5}
                       className="bg-background border-border resize-none"
@@ -158,10 +205,22 @@ export function ContactForm() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-base gap-2"
                   >
-                    {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+                    {isSubmitting ? (
+                      'Enviando...'
+                    ) : (
+                      <>
+                        Enviar mensaje
+                        <Send className="h-4 w-4" />
+                      </>
+                    )}
                   </Button>
+                  
+                  <p className="text-xs text-muted-foreground text-center">
+                    Al enviar este formulario aceptas nuestra política de privacidad. 
+                    Responderemos en menos de 24 horas hábiles.
+                  </p>
                 </form>
               </CardContent>
             </Card>
