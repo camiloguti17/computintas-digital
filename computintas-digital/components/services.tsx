@@ -1,8 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-
-const QR_PLACEHOLDER = 'https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://computintasdigital.com'
+import Link from 'next/link'
 
 const solutions = [
   {
@@ -15,11 +14,6 @@ const solutions = [
       'Metodologías ágiles para entrega continua',
     ],
     image: '/sol-software.jpg',
-    links: {
-      video: '#',
-      instagram: '#',
-      facebook: '#',
-    },
   },
   {
     title: 'Aplicaciones disponibles',
@@ -31,82 +25,49 @@ const solutions = [
       'Actualizaciones y mejoras periódicas',
     ],
     image: '/sol-apps.jpg',
-    links: {
-      video: '#',
-      instagram: '#',
-      facebook: '#',
-    },
   },
 ]
 
 const products = [
   {
-    title: 'Aplicación de Asistencia',
+    title: 'App Asistencia',
+    subtitle: 'Control de Personal',
     description:
-      'App Asistencia es una solución diseñada para registrar y controlar de forma ágil la entrada, salida y estado del personal. Facilita el seguimiento de horarios, mejora el control operativo y permite consultar la información en tiempo real para una gestión más organizada y eficiente.',
-    bullets: [
-      'Registro rápido de asistencia',
-      'Control de horarios y estados',
-      'Reportes claros para seguimiento',
-    ],
+      'Registra y controla la entrada, salida y estado del personal en tiempo real. Gestión organizada y eficiente de horarios.',
+    highlights: ['Registro biométrico', 'Reportes automáticos', 'Multi-sucursal'],
     image: '/sol-asistencia.png',
-    imagePosition: 'left',
-    links: {
-      video: '#',
-      instagram: '#',
-      facebook: '#',
-    },
+    color: 'from-blue-500/20 to-cyan-500/20',
+    iconBg: 'bg-blue-500/10',
   },
   {
     title: 'Gestión de Taller',
+    subtitle: 'Talleres Mecánicos',
     description:
-      'Solución completa para talleres mecánicos y servicios técnicos. Controla recepciones, presupuestos, órdenes de trabajo, stock y facturación desde un solo sistema, optimizando cada etapa del servicio.',
-    bullets: [
-      'Órdenes de trabajo digitales',
-      'Control de inventario y repuestos',
-      'Facturación e informes de gestión',
-    ],
+      'Sistema integral para talleres. Controla recepciones, presupuestos, órdenes de trabajo, stock y facturación.',
+    highlights: ['Órdenes digitales', 'Control de stock', 'Facturación integrada'],
     image: '/sol-taller.jpg',
-    imagePosition: 'right',
-    links: {
-      video: '#',
-      instagram: '#',
-      facebook: '#',
-    },
+    color: 'from-emerald-500/20 to-teal-500/20',
+    iconBg: 'bg-emerald-500/10',
   },
   {
-    title: 'Seguimiento con balizas',
+    title: 'Tracking con Balizas',
+    subtitle: 'Rastreo en Tiempo Real',
     description:
-      'Sistema de tracking en tiempo real utilizando tecnología Bluetooth y GPS para la localización de activos, vehículos y personal. Ideal para empresas que requieren visibilidad operativa constante.',
-    bullets: [
-      'Rastreo en tiempo real de activos y vehículos',
-      'Alertas automáticas por zona o movimiento',
-      'Panel de control con historial de rutas',
-    ],
+      'Localización de activos, vehículos y personal con tecnología Bluetooth y GPS. Visibilidad operativa constante.',
+    highlights: ['GPS + Bluetooth', 'Alertas automáticas', 'Historial de rutas'],
     image: '/sol-balizas.jpg',
-    imagePosition: 'left',
-    links: {
-      video: '#',
-      instagram: '#',
-      facebook: '#',
-    },
+    color: 'from-violet-500/20 to-purple-500/20',
+    iconBg: 'bg-violet-500/10',
   },
   {
-    title: 'Actas de Recepción para farmacias',
+    title: 'Actas Farmacéuticas',
+    subtitle: 'Farmacias y Droguerías',
     description:
-      'Actas de recepción para farmacias y control de vencimientos con alertas automáticas. Mantén el cumplimiento normativo y reduce riesgos mediante notificaciones proactivas y registros digitales.',
-    bullets: [
-      'Actas digitales de recepción de mercadería',
-      'Control de vencimientos con alertas automáticas',
-      'Trazabilidad y auditoría de productos',
-    ],
+      'Control de recepción y vencimientos con alertas automáticas. Cumplimiento normativo y trazabilidad completa.',
+    highlights: ['Actas digitales', 'Alertas de vencimiento', 'Auditoría completa'],
     image: '/sol-alertas.jpg',
-    imagePosition: 'right',
-    links: {
-      video: '#',
-      instagram: '#',
-      facebook: '#',
-    },
+    color: 'from-rose-500/20 to-pink-500/20',
+    iconBg: 'bg-rose-500/10',
   },
 ]
 
@@ -146,135 +107,119 @@ export function Services() {
                 <ul className="flex flex-col gap-1 mt-1">
                   {solution.bullets.map((bullet) => (
                     <li key={bullet} className="text-sm text-foreground flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-foreground shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                       {bullet}
                     </li>
                   ))}
                 </ul>
-
-                {/* Links + QR */}
-                <div className="flex items-center gap-5 mt-3">
-                  <a href={solution.links.video} className="text-sm text-primary hover:underline font-medium">
-                    Video
-                  </a>
-                  <a href={solution.links.instagram} className="text-sm text-primary hover:underline font-medium">
-                    Instagram
-                  </a>
-                  <a href={solution.links.facebook} className="text-sm text-primary hover:underline font-medium">
-                    Facebook
-                  </a>
-                  <div className="ml-2 border border-border rounded p-0.5">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={QR_PLACEHOLDER}
-                      alt="Código QR"
-                      width={64}
-                      height={64}
-                      className="block"
-                    />
-                  </div>
-                </div>
               </div>
             </div>
           ))}
         </div>
-
       </div>
 
-      {/* Separator - Nuestros Productos */}
-      <div className="relative my-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t-2 border-primary/30"></div>
-        </div>
-        <div className="relative flex justify-center">
-          <span className="bg-[#f0f4f8] px-8 py-3 text-2xl md:text-3xl font-bold text-primary rounded-full border-2 border-primary/20">
-            Nuestros Productos
-          </span>
-        </div>
-      </div>
+      {/* Products Section */}
+      <div id="productos" className="w-full py-20 md:py-28 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
+              Suite de Aplicaciones
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Nuestros Productos
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Soluciones probadas y listas para implementar en tu empresa
+            </p>
+          </div>
 
-      {/* Products Section - Full Width Design */}
-      <div className="flex flex-col gap-0 bg-secondary">
-        {products.map((product, index) => (
-          <div
-            key={product.title}
-            className={`flex flex-col ${
-              product.imagePosition === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse'
-            } items-stretch bg-secondary`}
-          >
-            {/* Image Container with proper aspect ratio */}
-            <div 
-              className={`relative w-full lg:w-1/2 flex items-center justify-center p-6 md:p-10 bg-secondary`} 
-              style={{ height: '700px' }}
-            >
-              <div 
-                className={`relative overflow-hidden shadow-2xl flex-shrink-0 rounded-xl ring-1 ring-white/10`}
-                style={{ 
-                  height: '600px',
-                  position: 'relative',
-                  display: 'block',
-                  width: '100%',
-                  maxWidth: '95%'
-                }}
+          {/* Products Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {products.map((product) => (
+              <div
+                key={product.title}
+                className="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
               >
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  className="object-contain p-1"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
+                {/* Gradient Background Accent */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                
+                {/* Content */}
+                <div className="relative p-6">
+                  {/* Header with Image */}
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-muted shrink-0 ring-1 ring-border">
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-xs font-medium text-accent uppercase tracking-wide">
+                        {product.subtitle}
+                      </span>
+                      <h3 className="text-lg font-bold text-foreground mt-0.5 truncate">
+                        {product.title}
+                      </h3>
+                    </div>
+                  </div>
 
-            {/* Content - padded side */}
-            <div className="flex flex-col justify-center gap-6 w-full lg:w-1/2 px-8 md:px-16 lg:px-20 py-12 md:py-16 bg-secondary">
-              <div className="inline-flex items-center gap-2 text-sm font-medium text-white/70 uppercase tracking-wider">
-                <span className="w-8 h-0.5 bg-white/50"></span>
-                Producto Destacado
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                {product.title}
-              </h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                {product.description}
-              </p>
-              <ul className="flex flex-col gap-3 mt-2">
-                {product.bullets.map((bullet) => (
-                  <li key={bullet} className="text-base text-white/90 flex items-center gap-3">
-                    <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                      <span className="w-2 h-2 rounded-full bg-white" />
-                    </span>
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {product.description}
+                  </p>
 
-              {/* Links */}
-              <div className="flex items-center gap-4 mt-4 pt-6 border-t border-white/20">
-                <a href={product.links.video} className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors">
-                  Ver Video
-                </a>
-                <a href={product.links.instagram} className="px-4 py-2 border border-white/30 text-white rounded-lg text-sm font-semibold hover:bg-white/10 transition-colors">
-                  Instagram
-                </a>
-                <a href={product.links.facebook} className="px-4 py-2 border border-white/30 text-white rounded-lg text-sm font-semibold hover:bg-white/10 transition-colors">
-                  Facebook
-                </a>
-                <div className="ml-auto border border-white/20 rounded-lg p-1.5 bg-white/5 shadow-sm">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={QR_PLACEHOLDER}
-                    alt="Código QR"
-                    width={60}
-                    height={60}
-                    className="block rounded"
-                  />
+                  {/* Highlights */}
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {product.highlights.map((highlight) => (
+                      <span
+                        key={highlight}
+                        className="inline-flex items-center px-2.5 py-1 text-xs font-medium text-foreground/80 bg-muted/60 rounded-md"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <Link
+                    href="#contacto"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors group/link"
+                  >
+                    Solicitar demo
+                    <svg
+                      className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+
+          {/* Bottom CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground mb-4">
+              Todos nuestros productos incluyen soporte, capacitacion y actualizaciones
+            </p>
+            <Link
+              href="#contacto"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg shadow-sm shadow-primary/20 hover:bg-primary/90 transition-all duration-200 hover:shadow-md hover:shadow-primary/25"
+            >
+              Agendar asesoria gratuita
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   )
