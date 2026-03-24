@@ -6,6 +6,7 @@ import { Products } from '@/components/products'
 import { Industries } from '@/components/industries'
 import { Process } from '@/components/process'
 import { About } from '@/components/about'
+import { CTASection } from '@/components/cta-section'
 import { ContactForm } from '@/components/contact-form'
 import { Footer } from '@/components/footer'
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Industries />
       <Process />
       <About />
+      <CTASection />
       <ContactForm />
       <Footer />
     </main>
