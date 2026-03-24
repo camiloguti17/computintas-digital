@@ -4,53 +4,53 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react'
 
+const footerSections = [
+  {
+    title: 'Productos',
+    links: [
+      { label: 'App Asistencia', href: '#productos' },
+      { label: 'Gestión de Taller', href: '#productos-taller' },
+      { label: 'Tracking', href: '#productos-tracking' },
+      { label: 'Actas Farmacéuticas', href: '#productos-farma' },
+    ],
+  },
+  {
+    title: 'Soluciones',
+    links: [
+      { label: 'Desarrollo Custom', href: '#servicios' },
+      { label: 'Aplicaciones', href: '#servicios-apps' },
+      { label: 'Automatización', href: '#servicios-auto' },
+      { label: 'Soporte 24/7', href: '#servicios-soporte' },
+    ],
+  },
+  {
+    title: 'Empresa',
+    links: [
+      { label: 'Sobre nosotros', href: '#nosotros' },
+      { label: 'Nuestro proceso', href: '#proceso' },
+      { label: 'Industrias', href: '#industrias' },
+      { label: 'Contacto', href: '#contacto' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Privacidad', href: '/privacy' },
+      { label: 'Términos de uso', href: '/terms' },
+      { label: 'Política de cookies', href: '/cookies' },
+      { label: 'Aviso legal', href: '/legal' },
+    ],
+  },
+]
+
+const socialLinks = [
+  { icon: Linkedin, href: '#linkedin', label: 'LinkedIn' },
+  { icon: Twitter, href: '#twitter', label: 'Twitter' },
+  { icon: Facebook, href: '#facebook', label: 'Facebook' },
+]
+
 export function Footer() {
   const currentYear = new Date().getFullYear()
-
-  const footerSections = [
-    {
-      title: 'Productos',
-      links: [
-        { label: 'App Asistencia', href: '#productos' },
-        { label: 'Gestión de Taller', href: '#productos' },
-        { label: 'Tracking', href: '#productos' },
-        { label: 'Actas Farmacéuticas', href: '#productos' },
-      ],
-    },
-    {
-      title: 'Soluciones',
-      links: [
-        { label: 'Desarrollo Custom', href: '#servicios' },
-        { label: 'Aplicaciones', href: '#servicios' },
-        { label: 'Automatización', href: '#servicios' },
-        { label: 'Soporte 24/7', href: '#servicios' },
-      ],
-    },
-    {
-      title: 'Empresa',
-      links: [
-        { label: 'Sobre nosotros', href: '#nosotros' },
-        { label: 'Nuestro proceso', href: '#' },
-        { label: 'Industrias', href: '#' },
-        { label: 'Contacto', href: '#contacto' },
-      ],
-    },
-    {
-      title: 'Legal',
-      links: [
-        { label: 'Privacidad', href: '/privacy' },
-        { label: 'Términos de uso', href: '/terms' },
-        { label: 'Política de cookies', href: '/cookies' },
-        { label: 'Aviso legal', href: '/legal' },
-      ],
-    },
-  ]
-
-  const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-  ]
 
   return (
     <footer className="w-full bg-foreground text-background">
