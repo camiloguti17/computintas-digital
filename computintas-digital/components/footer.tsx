@@ -95,7 +95,7 @@ export function Footer() {
               </h4>
               <ul className="space-y-3">
                 {section.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={`${section.title}-${link.label}`}>
                     <Link
                       href={link.href}
                       className="text-sm text-background/75 hover:text-background transition-colors duration-200"
