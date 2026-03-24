@@ -1,108 +1,175 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
+  const footerSections = [
+    {
+      title: 'Productos',
+      links: [
+        { label: 'App Asistencia', href: '#productos' },
+        { label: 'Gestión de Taller', href: '#productos' },
+        { label: 'Tracking', href: '#productos' },
+        { label: 'Actas Farmacéuticas', href: '#productos' },
+      ],
+    },
+    {
+      title: 'Soluciones',
+      links: [
+        { label: 'Desarrollo Custom', href: '#servicios' },
+        { label: 'Aplicaciones', href: '#servicios' },
+        { label: 'Automatización', href: '#servicios' },
+        { label: 'Soporte 24/7', href: '#servicios' },
+      ],
+    },
+    {
+      title: 'Empresa',
+      links: [
+        { label: 'Sobre nosotros', href: '#nosotros' },
+        { label: 'Nuestro proceso', href: '#' },
+        { label: 'Industrias', href: '#' },
+        { label: 'Contacto', href: '#contacto' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { label: 'Privacidad', href: '#' },
+        { label: 'Términos de uso', href: '#' },
+        { label: 'Política de cookies', href: '#' },
+        { label: 'Aviso legal', href: '#' },
+      ],
+    },
+  ]
+
+  const socialLinks = [
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Facebook, href: '#', label: 'Facebook' },
+  ]
+
   return (
-    <footer className="w-full bg-secondary text-secondary-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <Image
-              src="/logo-compu-negro.png"
-              alt="Computintas Digital"
-              width={300}
-              height={100}
-              className="h-16 w-auto mb-4"
-            />
-            <p className="text-sm opacity-75">
-              Soluciones de software a la medida para tu negocio.
+    <footer className="w-full bg-foreground text-background">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
+          {/* Brand Section */}
+          <div className="md:col-span-1">
+            <Link href="/" className="inline-block mb-6 hover:opacity-80 transition-opacity">
+              <Image
+                src="/logo-compu-negro.png"
+                alt="Computintas Digital"
+                width={200}
+                height={60}
+                className="h-12 w-auto invert"
+              />
+            </Link>
+            <p className="text-sm text-background/80 leading-relaxed mb-6">
+              Soluciones de software innovadoras para empresas que buscan transformación digital.
             </p>
-          </div>
-
-          {/* Solutions */}
-          <div>
-            <h3 className="font-semibold mb-4 text-sm">Soluciones</h3>
-            <ul className="space-y-2 text-sm opacity-75">
-              <li>
-                <Link href="#servicios" className="hover:opacity-100 transition-opacity">
-                  Desarrollo personalizado
-                </Link>
-              </li>
-              <li>
-                <Link href="#servicios" className="hover:opacity-100 transition-opacity">
-                  Sistemas a medida
-                </Link>
-              </li>
-              <li>
-                <Link href="#servicios" className="hover:opacity-100 transition-opacity">
-                  Aplicaciones
-                </Link>
-              </li>
-              <li>
-                <Link href="#servicios" className="hover:opacity-100 transition-opacity">
-                  Seguimiento
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="font-semibold mb-4 text-sm">Empresa</h3>
-            <ul className="space-y-2 text-sm opacity-75">
-              <li>
-                <Link href="#nosotros" className="hover:opacity-100 transition-opacity">
-                  Sobre nosotros
-                </Link>
-              </li>
-              <li>
-                <Link href="#servicios" className="hover:opacity-100 transition-opacity">
-                  Servicios
-                </Link>
-              </li>
-              <li>
-                <Link href="#contacto" className="hover:opacity-100 transition-opacity">
-                  Contacto
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-semibold mb-4 text-sm">Contacto</h3>
-            <ul className="space-y-2 text-sm opacity-75">
-              <li>
-                <a href="mailto:Contacto@computintas.co" className="hover:opacity-100 transition-opacity">
-                  Contacto@computintas.co
+            
+            {/* Social Links */}
+            <div className="flex items-center gap-3">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="w-10 h-10 rounded-lg bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
                 </a>
-              </li>
-              <li>
-                <a href="tel:6048298470" className="hover:opacity-100 transition-opacity">
-                  604 8298470
-                </a>
-              </li>
-              <li>Apartadó, Colombia</li>
-            </ul>
+              ))}
+            </div>
           </div>
+
+          {/* Navigation Sections */}
+          {footerSections.map((section) => (
+            <div key={section.title}>
+              <h4 className="font-semibold text-sm uppercase tracking-wider text-background mb-5 opacity-90">
+                {section.title}
+              </h4>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-background/75 hover:text-background transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-secondary-foreground/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-75">
-            <p>&copy; {currentYear} Computintas Digital. Todos los derechos reservados.</p>
-            <div className="flex gap-6">
-              <Link href="#" className="hover:opacity-100 transition-opacity">
-                Privacidad
+        {/* Contact Info Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8 border-t border-background/20">
+          {/* Email */}
+          <a
+            href="mailto:Contacto@computintas.co"
+            className="flex items-start gap-3 hover:opacity-80 transition-opacity group"
+          >
+            <div className="w-10 h-10 rounded-lg bg-background/10 group-hover:bg-background/20 flex items-center justify-center shrink-0 transition-colors">
+              <Mail className="w-5 h-5" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs text-background/60 uppercase tracking-wider">Email</p>
+              <p className="text-sm text-background/90 break-all">Contacto@computintas.co</p>
+            </div>
+          </a>
+
+          {/* Phone */}
+          <a
+            href="tel:+576048298470"
+            className="flex items-start gap-3 hover:opacity-80 transition-opacity group"
+          >
+            <div className="w-10 h-10 rounded-lg bg-background/10 group-hover:bg-background/20 flex items-center justify-center shrink-0 transition-colors">
+              <Phone className="w-5 h-5" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs text-background/60 uppercase tracking-wider">Teléfono</p>
+              <p className="text-sm text-background/90">+57 604 8298470</p>
+            </div>
+          </a>
+
+          {/* Location */}
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center shrink-0">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs text-background/60 uppercase tracking-wider">Ubicación</p>
+              <p className="text-sm text-background/90">Apartadó, Antioquia, Colombia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-background/20 bg-background/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/70">
+            <p>
+              &copy; {currentYear} Computintas Digital. Todos los derechos reservados.
+            </p>
+            <div className="flex gap-6 text-xs">
+              <Link href="#" className="hover:text-background transition-colors">
+                Política de privacidad
               </Link>
-              <Link href="#" className="hover:opacity-100 transition-opacity">
-                Términos
+              <span className="text-background/40">/</span>
+              <Link href="#" className="hover:text-background transition-colors">
+                Términos de servicio
               </Link>
-              <Link href="#" className="hover:opacity-100 transition-opacity">
-                Cookies
+              <span className="text-background/40">/</span>
+              <Link href="#" className="hover:text-background transition-colors">
+                Política de cookies
               </Link>
             </div>
           </div>
