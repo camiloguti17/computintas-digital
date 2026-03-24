@@ -6,76 +6,129 @@ import Link from 'next/link'
 const solutions = [
   {
     title: 'Desarrollo de software personalizado',
+    subtitle: 'Soluciones a tu medida',
     description:
-      'Creamos soluciones únicas que se adaptan a los procesos y necesidades de tu organización. Nuestro equipo analiza y diseña aplicaciones escalables, seguras y eficientes para optimizar flujos de trabajo, integrar plataformas y transformar ideas en productos digitales.',
+      'Creamos soluciones únicas adaptadas a tus procesos. Análisis profundo, diseño escalable y metodologías ágiles para transformar tus ideas en productos digitales.',
     bullets: [
-      'Desarrollo web y móvil adaptado a tu negocio',
-      'Integración con sistemas existentes y API',
-      'Metodologías ágiles para entrega continua',
+      'Desarrollo web y móvil',
+      'Integración de sistemas',
+      'Arquitectura escalable',
     ],
     image: '/sol-software.jpg',
+    icon: '⚙️',
+    color: 'from-blue-500/20 to-cyan-500/20',
+    ctaText: 'Consultar desarrollo',
   },
   {
-    title: 'Aplicaciones disponibles',
+    title: 'Aplicaciones listas para usar',
+    subtitle: 'Implementación rápida',
     description:
-      'Contamos con una suite de aplicaciones listas para usar que pueden desplegarse rápidamente en tu empresa. Diseñadas con interfaces intuitivas y funcionalidades probadas para distintos sectores.',
+      'Suite de aplicaciones probadas y listas para desplegar. Interfaces intuitivas, funcionalidades comprobadas, instalación rápida y soporte continuo.',
     bullets: [
-      'Instalación rápida y soporte continuo',
-      'Adaptables a distintos rubros',
-      'Actualizaciones y mejoras periódicas',
+      'Despliegue en días',
+      'Adaptable a tu sector',
+      'Actualizaciones incluidas',
     ],
     image: '/sol-apps.jpg',
+    icon: '📱',
+    color: 'from-emerald-500/20 to-teal-500/20',
+    ctaText: 'Explorar apps',
   },
 ]
 
-
 export function Services() {
   return (
-    <section id="servicios" className="w-full py-20 md:py-28 bg-[#f0f4f8]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-          Soluciones a tu medida
-        </h2>
+    <section id="servicios" className="w-full py-20 md:py-32 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
+            Cómo trabajamos contigo
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
+            Soluciones a tu medida
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Dos enfoques complementarios para cubrir todas tus necesidades digitales
+          </p>
+        </div>
 
-        {/* Solutions Cards */}
-        <div className="flex flex-col gap-6">
+        {/* Solutions Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {solutions.map((solution) => (
             <div
               key={solution.title}
-              className="bg-white rounded-xl shadow-sm border border-border overflow-hidden flex flex-col md:flex-row"
+              className="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1"
             >
-              {/* Image */}
-              <div className="relative w-full md:w-[400px] shrink-0 h-64 md:h-[280px] bg-muted/30">
-                <Image
-                  src={solution.image}
-                  alt={solution.title}
-                  fill
-                  className="object-contain p-2"
-                />
-              </div>
+              {/* Gradient Accent */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${solution.color} opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
 
-              {/* Content */}
-              <div className="flex flex-col justify-center px-8 py-7 gap-3 flex-1">
-                <h3 className="text-xl font-bold text-primary leading-snug">
+              <div className="relative p-8 flex flex-col h-full">
+                {/* Icon and Badge */}
+                <div className="flex items-start justify-between mb-6">
+                  <div className="text-4xl">{solution.icon}</div>
+                  <span className="text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">
+                    {solution.subtitle}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-foreground mb-3 leading-snug">
                   {solution.title}
                 </h3>
-                <p className="text-sm text-foreground leading-relaxed">
+
+                {/* Description */}
+                <p className="text-muted-foreground mb-6 leading-relaxed flex-1">
                   {solution.description}
                 </p>
-                <ul className="flex flex-col gap-1 mt-1">
+
+                {/* Bullets */}
+                <div className="space-y-2 mb-8">
                   {solution.bullets.map((bullet) => (
-                    <li key={bullet} className="text-sm text-foreground flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                      {bullet}
-                    </li>
+                    <div key={bullet} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm text-foreground/90 font-medium">{bullet}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
+
+                {/* CTA */}
+                <Link href="#contacto" className="inline-block">
+                  <button className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/25 group/btn w-full justify-center">
+                    {solution.ctaText}
+                    <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
-      </div>
 
+        {/* Bottom Info */}
+        <div className="rounded-2xl border border-border/50 bg-muted/30 p-8 md:p-10 text-center">
+          <p className="text-muted-foreground mb-4 text-sm uppercase tracking-widest font-medium">
+            En ambos casos incluye
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+            <div>
+              <p className="font-semibold text-foreground mb-1">Análisis profundo</p>
+              <p className="text-muted-foreground">Entendemos tus procesos y desafíos</p>
+            </div>
+            <div>
+              <p className="font-semibold text-foreground mb-1">Soporte 24/7</p>
+              <p className="text-muted-foreground">Equipo dedicado siempre disponible</p>
+            </div>
+            <div>
+              <p className="font-semibold text-foreground mb-1">Capacitación</p>
+              <p className="text-muted-foreground">Tu equipo maximiza cada herramienta</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

@@ -160,15 +160,15 @@ export function Footer() {
               &copy; {currentYear} Computintas Digital. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-xs">
-              <Link href="#" className="hover:text-background transition-colors">
+              <Link key="privacy" href="#" className="hover:text-background transition-colors">
                 Política de privacidad
               </Link>
               <span className="text-background/40">/</span>
-              <Link href="#" className="hover:text-background transition-colors">
+              <Link key="terms" href="#" className="hover:text-background transition-colors">
                 Términos de servicio
               </Link>
               <span className="text-background/40">/</span>
-              <Link href="#" className="hover:text-background transition-colors">
+              <Link key="cookies" href="#" className="hover:text-background transition-colors">
                 Política de cookies
               </Link>
             </div>
