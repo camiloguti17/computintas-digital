@@ -1,7 +1,7 @@
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
 import { TrustBar } from '@/components/trust-bar'
-import { Solutions } from '@/components/solutions'
+import { Services } from '@/components/services'
 import { About } from '@/components/about'
 import { ContactForm } from '@/components/contact-form'
 import { Footer } from '@/components/footer'
@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       <Hero />
       <TrustBar />
-      <Solutions />
+      <Services />
       <About />
       <ContactForm />
       <Footer />
