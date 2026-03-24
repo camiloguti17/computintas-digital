@@ -3,7 +3,6 @@ import { Hero } from '@/components/hero'
 import { TrustBar } from '@/components/trust-bar'
 import { Services } from '@/components/services'
 import { Products } from '@/components/products'
-import { Industries } from '@/components/industries'
 import { Process } from '@/components/process'
 import { About } from '@/components/about'
 import { CTASection } from '@/components/cta-section'
@@ -18,7 +17,6 @@ export default function Home() {
       <TrustBar />
       <Services />
       <Products />
-      <Industries />
       <Process />
       <About />
       <CTASection />

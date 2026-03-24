@@ -8,7 +8,7 @@ const footerSections = [
   {
     title: 'Productos',
     links: [
-      { label: 'App Asistencia', href: '#productos' },
+      { label: 'App Asistencia', href: '#productos-asistencia' },
       { label: 'Gestión de Taller', href: '#productos-taller' },
       { label: 'Tracking', href: '#productos-tracking' },
       { label: 'Actas Farmacéuticas', href: '#productos-farma' },
@@ -17,7 +17,7 @@ const footerSections = [
   {
     title: 'Soluciones',
     links: [
-      { label: 'Desarrollo Custom', href: '#servicios' },
+      { label: 'Desarrollo Custom', href: '#servicios-custom' },
       { label: 'Aplicaciones', href: '#servicios-apps' },
       { label: 'Automatización', href: '#servicios-auto' },
       { label: 'Soporte 24/7', href: '#servicios-soporte' },
