@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react'
 
 const FLOATING_METRICS = [
   { label: 'Procesos optimizados', value: '+85%', delay: 0 },
-  { label: 'Reduccion de errores', value: '-60%', delay: 150 },
-  { label: 'Tiempo ahorrado', value: '4h/dia', delay: 300 },
+  { label: 'Reducción de errores', value: '-60%', delay: 150 },
+  { label: 'Tiempo ahorrado', value: '4h/día', delay: 300 },
 ]
 
 export function Hero() {
@@ -48,7 +48,7 @@ export function Hero() {
               }`}
             >
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-xs font-medium text-primary">+10 anos transformando empresas</span>
+              <span className="text-xs font-medium text-primary">+10 años transformando empresas</span>
             </div>
 
             {/* Headline */}
@@ -72,7 +72,7 @@ export function Hero() {
               }`}
             >
               Desarrollamos soluciones a la medida que automatizan procesos, reducen costos operativos y 
-              te dan el control total de tu operacion. Desde facturacion electronica hasta ERP completos.
+              te dan el control total de tu operación. Desde facturación electrónica hasta ERP completos.
             </p>
 
             {/* CTAs */}
@@ -180,7 +180,7 @@ export function Hero() {
                 {/* Table preview */}
                 <div className="bg-card rounded-lg border border-border overflow-hidden">
                   <div className="px-4 py-2 border-b border-border bg-muted/30">
-                    <span className="text-sm font-medium text-foreground">Ultimas transacciones</span>
+                    <span className="text-sm font-medium text-foreground">Últimas transacciones</span>
                   </div>
                   <div className="divide-y divide-border">
                     {[

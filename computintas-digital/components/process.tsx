@@ -5,31 +5,31 @@ const steps = [
     number: '01',
     title: 'Descubrimiento',
     description: 'Escuchamos tus necesidades, entendemos tu negocio y definimos objetivos claros para tu proyecto.',
-    details: ['Reunion inicial', 'Levantamiento de requerimientos', 'Definicion de alcance'],
+    details: ['Reunión inicial', 'Levantamiento de requerimientos', 'Definición de alcance'],
   },
   {
     number: '02',
-    title: 'Analisis',
+    title: 'Análisis',
     description: 'Evaluamos procesos actuales, identificamos oportunidades de mejora y diseñamos la arquitectura ideal.',
-    details: ['Mapeo de procesos', 'Analisis de datos', 'Propuesta tecnica'],
+    details: ['Mapeo de procesos', 'Análisis de datos', 'Propuesta técnica'],
   },
   {
     number: '03',
-    title: 'Diseno',
+    title: 'Diseño',
     description: 'Creamos prototipos y definimos la experiencia de usuario con interfaces intuitivas y funcionales.',
-    details: ['Wireframes y mockups', 'Validacion con usuarios', 'Diseno de interfaces'],
+    details: ['Wireframes y mockups', 'Validación con usuarios', 'Diseño de interfaces'],
   },
   {
     number: '04',
     title: 'Desarrollo',
-    description: 'Construimos la solucion con metodologias agiles, entregas incrementales y codigo de alta calidad.',
+    description: 'Construimos la solución con metodologías ágiles, entregas incrementales y código de alta calidad.',
     details: ['Sprints de desarrollo', 'Pruebas continuas', 'Control de calidad'],
   },
   {
     number: '05',
-    title: 'Implementacion',
-    description: 'Desplegamos la solucion, capacitamos a tu equipo y brindamos soporte continuo para el exito.',
-    details: ['Migracion de datos', 'Capacitacion', 'Soporte post-lanzamiento'],
+    title: 'Implementación',
+    description: 'Desplegamos la solución, capacitamos a tu equipo y brindamos soporte continuo para el éxito.',
+    details: ['Migración de datos', 'Capacitación', 'Soporte post-lanzamiento'],
   },
 ]
 
@@ -40,10 +40,10 @@ export function Process() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
-            Metodologia
+            Metodología
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Como Trabajamos
+            Cómo Trabajamos
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Un proceso probado que garantiza resultados exitosos en cada proyecto
@@ -100,7 +100,7 @@ export function Process() {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-5">
-            Cada proyecto es unico. Adaptamos nuestra metodologia a tus necesidades especificas.
+            Cada proyecto es único. Adaptamos nuestra metodología a tus necesidades específicas.
           </p>
           <Link
             href="#contacto"

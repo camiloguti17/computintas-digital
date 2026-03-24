@@ -56,7 +56,7 @@ export function Products() {
             Nuestros Productos
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Aplicaciones listas para implementar, diseñadas para cada rubro y adaptadas a tu operacion
+            Aplicaciones listas para implementar, diseñadas para cada rubro y adaptadas a tu operación
           </p>
         </div>
 
@@ -124,14 +124,14 @@ export function Products() {
         {/* Bottom banner */}
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 px-8 py-6 bg-card border border-border rounded-2xl shadow-sm">
           <div>
-            <p className="font-semibold text-foreground text-lg">Todos los productos incluyen soporte y capacitacion</p>
-            <p className="text-muted-foreground text-sm mt-0.5">Implementacion rapida, actualizaciones continuas y asistencia dedicada</p>
+            <p className="font-semibold text-foreground text-lg">Todos los productos incluyen soporte y capacitación</p>
+            <p className="text-muted-foreground text-sm mt-0.5">Implementación rápida, actualizaciones continuas y asistencia dedicada</p>
           </div>
           <Link
             href="#contacto"
             className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg shadow-sm shadow-primary/20 hover:bg-primary/90 hover:shadow-md hover:shadow-primary/30 transition-all duration-200 whitespace-nowrap"
           >
-            Agendar asesoria gratuita
+            Agendar asesoría gratuita
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
