@@ -107,27 +107,6 @@ export function Services() {
             </div>
           ))}
         </div>
-
-        {/* Bottom Info */}
-        <div className="rounded-2xl border border-border/50 bg-muted/30 p-8 md:p-10 text-center">
-          <p className="text-muted-foreground mb-4 text-sm uppercase tracking-widest font-medium">
-            En ambos casos incluye
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
-            <div>
-              <p className="font-semibold text-foreground mb-1">Análisis profundo</p>
-              <p className="text-muted-foreground">Entendemos tus procesos y desafíos</p>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground mb-1">Soporte 24/7</p>
-              <p className="text-muted-foreground">Equipo dedicado siempre disponible</p>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground mb-1">Capacitación</p>
-              <p className="text-muted-foreground">Tu equipo maximiza cada herramienta</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )

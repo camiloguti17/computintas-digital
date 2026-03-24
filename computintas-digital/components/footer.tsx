@@ -38,10 +38,10 @@ export function Footer() {
     {
       title: 'Legal',
       links: [
-        { label: 'Privacidad', href: '#' },
-        { label: 'Términos de uso', href: '#' },
-        { label: 'Política de cookies', href: '#' },
-        { label: 'Aviso legal', href: '#' },
+        { label: 'Privacidad', href: '/privacy' },
+        { label: 'Términos de uso', href: '/terms' },
+        { label: 'Política de cookies', href: '/cookies' },
+        { label: 'Aviso legal', href: '/legal' },
       ],
     },
   ]
