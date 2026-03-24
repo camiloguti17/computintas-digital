@@ -1,5 +1,6 @@
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
+import { TrustBar } from '@/components/trust-bar'
 import { Services } from '@/components/services'
 import { About } from '@/components/about'
 import { ContactForm } from '@/components/contact-form'
@@ -10,6 +11,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <TrustBar />
       <Services />
       <About />
       <ContactForm />
