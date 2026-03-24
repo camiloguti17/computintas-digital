@@ -4,6 +4,7 @@ import { TrustBar } from '@/components/trust-bar'
 import { Services } from '@/components/services'
 import { Products } from '@/components/products'
 import { Industries } from '@/components/industries'
+import { Process } from '@/components/process'
 import { About } from '@/components/about'
 import { ContactForm } from '@/components/contact-form'
 import { Footer } from '@/components/footer'
@@ -17,6 +18,7 @@ export default function Home() {
       <Services />
       <Products />
       <Industries />
+      <Process />
       <About />
       <ContactForm />
       <Footer />
